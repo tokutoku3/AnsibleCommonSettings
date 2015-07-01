@@ -1,0 +1,29 @@
+---
+- name: download nodebrew
+  get_url: url="http://git.io/nodebrew" dest=/var/tmp/nodebrew
+
+- name: install nodebrew
+  command: perl /var/tmp/nodebrew setup
+  # become: no
+
+- name: rewrite .bashrc for export path
+  shell: echo export PATH=/home/vagrant/.nodebrew/current/bin:$PATH > /home/vagrant/.bashrc
+
+- name: install nodejs ver{{ node_version }}
+  shell: nodebrew install-binary v{{ node_version }}
+  ignore_errors: yes
+  environment:
+    PATH: "/home/vagrant/{{ nodebrew_path }}:{{ ansible_env.PATH }}"
+
+- name: use nodejs
+  shell: nodebrew use {{ node_version }}
+  environment:
+    PATH: "/home/vagrant/{{ nodebrew_path }}:{{ ansible_env.PATH }}"
+
+- name: append use nodejs to .bashrc
+  command: echo use {{ node_version }} >> ~.bashrc
+
+- name: show version of node.js
+  command: node --version
+  environment:
+    PATH: "/home/vagrant/{{ nodebrew_path }}:{{ ansible_env.PATH }}"

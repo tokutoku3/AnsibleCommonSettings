@@ -1,0 +1,4 @@
+---
+- name: install perl
+  yum: name=perl
+  # sudo: yes

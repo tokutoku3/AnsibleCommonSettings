@@ -1,0 +1,6 @@
+---
+- name: npm install yeoman
+  command: npm install -g bower grunt-cli yo
+  become: no
+  environment:
+    PATH: "/home/vagrant/{{ nodebrew_path }}:{{ ansible_env.PATH }}"

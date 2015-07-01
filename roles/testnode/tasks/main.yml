@@ -1,0 +1,3 @@
+- name: install nodebrew
+  command: $SHELL -lc "perl /var/tmp/nodebrew setup"
+

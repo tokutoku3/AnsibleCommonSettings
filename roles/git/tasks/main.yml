@@ -1,0 +1,31 @@
+---
+  - name: 'install git'
+    yum: name=git state=latest
+
+# - name: install lib for git
+#   yum: name={{ item }} state=latest
+#   become: yes
+#   with_items:
+#     - zlib-devel.x86_64
+#     - perl-ExtUtils-MakeMaker
+#     - libcurl-devel
+
+# - name: download git tar ball
+#   get_url: url=https://www.kernel.org/pub/software/scm/git/git-{{ git_version }}.tar.gz dest={{ git_src_dir }}
+#   become: yes
+#   always_run: yes
+#   register: downloaded_tarball
+# # - debug: var=downloaded_tarball.stdout_lines
+# #   when: downloaded_tarball | success
+# - unarchive: src={{ downloaded_tarball.dest }} dest={{ git_src_dir }}
+
+# - name: install git
+#   become: yes
+#   command: '{{ item }}'
+#   with_items:
+#     - ./configure --bindir={{ git_bin_dir }}
+#     - make
+#     - make install
+#   args:
+#     chdir: '{{ git_src_dir }}/git-{{ git_version }}'
+#     creates: '{{ git_bin_dir }}/git'

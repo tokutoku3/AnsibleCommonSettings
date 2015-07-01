@@ -1,0 +1,6 @@
+---
+- name: npm install gulp
+  command: npm install -g gulp
+  become: no
+  environment:
+    PATH: "/home/vagrant/{{ nodebrew_path }}:{{ ansible_env.PATH }}"

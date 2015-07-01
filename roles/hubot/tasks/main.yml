@@ -1,0 +1,18 @@
+# @file hubot.yaml
+- name: npm install hubot
+  command: npm install -g hubot
+  become: no
+  environment:
+    PATH: "/home/vagrant/{{ nodebrew_path }}:{{ ansible_env.PATH }}"
+
+- name: install libicu-devel
+  yum: name=libicu-devel state=latest
+  sudo: yes
+
+# - name: install application
+#   git: repo=git@github.com:sskyu/my-beat-bot.git dest={{ project_dir }} accept_hostkey=True
+
+# - name: setup application
+#   command: npm install --prefix {{ project_dir }}
+#   environment:
+#     PATH: "/home/vagrant/{{ nodebrew_path }}:{{ ansible_env.PATH }}"

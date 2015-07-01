@@ -1,0 +1,5 @@
+---
+- name: install coffee-script
+  command: npm install -g coffee-script
+  environment:
+    PATH: "/home/vagrant/{{ nodebrew_path }}:{{ ansible_env.PATH }}"

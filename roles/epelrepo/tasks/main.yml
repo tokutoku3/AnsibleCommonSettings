@@ -1,0 +1,7 @@
+- name: get epel repo
+  get_url: url="http://ftp-srv2.kddilabs.jp/Linux/distributions/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm" dest=/var/tmp/epel-release-6-8.noarch.rpm
+  sudo: yes
+
+- name: set epel repo
+  yum: name=/var/tmp/epel-release-6-8.noarch.rpm state=present
+  sudo: yes

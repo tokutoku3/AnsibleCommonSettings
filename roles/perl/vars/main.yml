@@ -1,0 +1,3 @@
+---
+node_version: '0.10.28'
+nodebrew_path: '.nodebrew/current/bin'
